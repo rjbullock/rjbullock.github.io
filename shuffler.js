@@ -11,7 +11,8 @@ var deck3 = Deck();
 var deck4 = Deck();
 
 // add to DOM
-deck1.shuffle();
+function  shuffle(){
+  deck1.shuffle();
 deck1.mount($container1)
 
 deck2.shuffle();
@@ -24,7 +25,10 @@ deck4.shuffle();
 deck4.mount($container4);
 
 deck1.cards.forEach(function(card, i) {
-  if (card.rank == deck2.cards[i].rank && card.suit == deck2.cards[i].suit || card.rank == deck3.cards[i].rank && card.suit == deck3.cards[i].suit ||  card.rank == deck4.cards[i].rank && card.suit == deck4.cards[i].suit) {
+  if (
+    card.rank == deck2.cards[i].rank && card.suit == deck2.cards[i].suit || 
+    card.rank == deck3.cards[i].rank && card.suit == deck3.cards[i].suit ||  
+    card.rank == deck4.cards[i].rank && card.suit == deck4.cards[i].suit) {
     card.setSide('front');
   } else {
     card.setSide('back');
@@ -35,9 +39,8 @@ deck1.cards.forEach(function(card, i) {
     delay: 1000 + i * 2, // wait 1 second + i * 2 ms
     duration: 500,
     ease: 'quartOut',
-
-    x: i * 30 + 50,
-    y: 100
+    x: i * 25 + 50,
+    y: 25
   })
 })
 
@@ -54,8 +57,8 @@ deck2.cards.forEach(function(card, i) {
     duration: 500,
     ease: 'quartOut',
 
-    x: i * 30 + 50,
-    y: 225
+    x: i * 25 + 50,
+    y: 150
   })
 })
 
@@ -72,8 +75,8 @@ deck3.cards.forEach(function(card, i) {
     duration: 500,
     ease: 'quartOut',
 
-    x: i * 30 + 50,
-    y: 350
+    x: i * 25 + 50,
+    y: 275
   })
 })
 
@@ -89,7 +92,9 @@ deck4.cards.forEach(function(card, i) {
     duration: 500,
     ease: 'quartOut',
 
-    x: i * 30 + 50,
-    y: 475
+    x: i * 25 + 50,
+    y: 400
   })
 })
+}
+

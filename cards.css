@@ -10,8 +10,8 @@
     height: 100%;
   }
   body {
-    background-color: #45a173;
-    color: #333;
+    background-color: #1f2723;
+    color: rgb(255, 254, 254);
     font-family: 'Open Sans', sans-serif;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -32,6 +32,7 @@
     -ms-transform: translate3d(-50%, -50%, 0);
     transform: translate3d(-50%, -50%, 0);
   }
+
   #topbar {
     position: fixed;
     top: 0;
@@ -69,8 +70,8 @@
   .card {
     position: absolute;
     display: inline-block;
-    left: -1.9375rem;
-    top: -2.75rem;
+    /*left: -1.9375rem;*/
+    /*top: -2.75rem;*/
     width: 3.875rem;
     height: 5.5rem;
     background-color: #fff;
@@ -387,4 +388,8 @@
     html {
       font-size: 125%;
     }
+  }
+
+  .shuffle-button {
+    padding: 1rem;
   }

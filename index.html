@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Robb's Card Match Experiment</title>
-</head>
-<body>
-    <script src="deck.js"></script>
     <link rel="stylesheet" href="cards.css">
-
-    <div id="deck-1" class="deck" style="width: 100%; text-align: left;"></div>
-    <div id="deck-2" class="deck" style="width: 100%; text-align: left;"></div>
-    <div id="deck-3" class="deck" style="width: 100%; text-align: left;"></div>
-    <div id="deck-4" class="deck" style="width: 100%; text-align: left;"></div>
-    <p><strong>Reload the page to shuffle the decks!</strong></p>
+    
+</head>
+<body style="padding: 2rem;">  
+    <p><input type="button" onclick="shuffle()" name="shuffle" class="shuffle-button" id="shuffle" value="Shuffle"></p>
+    <div id="deck-1" class="deck" style="text-align: left;"></div>
+    <div id="deck-2" class="deck" style="text-align: left;"></div>
+    <div id="deck-3" class="deck" style="text-align: left;"></div>
+    <div id="deck-4" class="deck" style="text-align: left;"></div>
+    <script src="deck.js"></script>
     <script src="shuffler.js"></script>
 </body>
 </html>
