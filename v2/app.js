@@ -8,6 +8,7 @@ var totalMatches = 0;
 
 function doIt(){
     root.innerHTML = "";
+    totalMatchesDiv.innerHTML = "";
     decks.length = 0;   
     
     var deckCnt = document.getElementById("deckCount").value;
