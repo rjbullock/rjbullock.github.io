@@ -1,7 +1,9 @@
 var decks = [];
+var matches = [];
 var root = document.getElementById("deck-container");
+var totalMatchesDiv = document.getElementById("total-matches");
 var firstMatch = false;
-var firstMatchPos = 0;
+var totalMatches = 0;
 
 
 function doIt(){
@@ -20,6 +22,7 @@ function doIt(){
         var div = document.createElement("div");                       // Create a <p> node
         var t = document.createTextNode(i.toString().padStart(2, '0'));      // Create a text node
         
+        matches.push(0);
         div.appendChild(t);                                          // Append the text to <p>
         div.classList.add("playing-card");
 
@@ -43,6 +46,13 @@ function doIt(){
             
         }    
     }
+    
+    var div = document.createElement("p");                       // Create a <p> node
+    var t = document.createTextNode("Total matches: " + matches.reduce(total));      // Create a text node
+    div.appendChild(t);
+    totalMatchesDiv.appendChild(div);
+
+    console.log("Total: " + matches.reduce(total));
 }
 
   function printCard(card,currentIndex,currentDeck,deckCnt,deckContainer) {
@@ -70,9 +80,13 @@ function isMatch(currentDeck,currentIndex,currentCard,deckCnt){
             //console.log(decks[currentDeck].deck[currentIndex]);
             if(decks[currentDeck].deck[currentIndex] == decks[counter].deck[currentIndex]){
                 match = true;
-               
+                matches[currentIndex] = 1;
             }
         }       
     }
     return match;
 }
+
+function total(total, num) {
+    return total + num;
+  }

@@ -24,3 +24,7 @@
     background-color: grey;
     font-weight: bold;
 }
+
+#total-matches p {
+    margin-top: 1rem;
+}
