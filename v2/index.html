@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap.css" />
+    <link rel="stylesheet" href="app.css"/>
+    <title>Deck Stuff v2</title>
+  </head>
+  <body>
+    <div class="container">
+        <div class="row">
+                <h1>Deck Shuffler Matching Thingie</h1>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <form class="form-inline">
+                    <label for="deckCount" class="col-form-label-md"># of Decks:</label>&nbsp;
+                    <input type="number" class="form-control-sm" name="deckCount" id="deckCount" />&nbsp;
+                    <input type="button" onclick="doIt()" class="btn btn-primary" name="shuffle" id="shuffle" value="Shuffle"/>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div id="deck-container" style="overflow-x: auto;margin-top: 1rem;" class="col-12 text-nowrap">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12" id="first-match">
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="deck.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

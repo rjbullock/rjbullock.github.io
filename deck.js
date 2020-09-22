@@ -70,9 +70,11 @@ var Deck = (function () {
       g
     );
   }
+
   function u(n) {
     return document.createElement(n);
   }
+  
   function i(t) {
     function r(n) {
       n.card && n.card(C);
