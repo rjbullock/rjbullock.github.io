@@ -76,10 +76,13 @@ function doIt(){
 
   function printCard(card,currentIndex,currentDeck,deckCnt,deckContainer) {
     var div = document.createElement("div");                       // Create a <p> node
-    var t = document.createTextNode(card);      // Create a text node
+    var t = document.createTextNode(card + getSuit(card));      // Create a text node
+    
     var suit = card.charAt(1);
     
-    div.appendChild(t);                                          // Append the text to <p>
+    div.innerHTML = card.charAt(0) + getSuit(card);
+
+    //div.appendChild(t);                                          // Append the text to <p>
     div.classList.add("playing-card");
 
     console.log("Deck: " + currentDeck + " Index: " + currentIndex + " Card:" + card)
@@ -113,3 +116,27 @@ function isMatch(currentDeck,currentIndex,currentCard,deckCnt){
 function total(total, num) {
     return total + num;
   }
+
+function getSuit(card){
+    var value = card.charAt(0);
+    var suit = card.charAt(1);
+    var text = "";
+
+    if(suit == "H") {
+        text = "&hearts;"
+    }
+
+    if(suit == "D") {
+        text = "&diams;"
+    }
+
+    if(suit == "S") {
+        text = "&spades;"
+    }
+
+    if(suit == "C") {
+        text = "&clubs;"
+    }
+
+    return text;
+}
