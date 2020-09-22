@@ -6,6 +6,10 @@
     border: solid 2px white;
 }
 
+.playing-card + .red {
+    background-color: red;
+}
+
 .match {
     font-weight: bold;
     background-color: black;

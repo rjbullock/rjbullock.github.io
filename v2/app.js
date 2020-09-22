@@ -77,6 +77,7 @@ function doIt(){
   function printCard(card,currentIndex,currentDeck,deckCnt,deckContainer) {
     var div = document.createElement("div");                       // Create a <p> node
     var t = document.createTextNode(card);      // Create a text node
+    var suit = card.charAt(1);
     
     div.appendChild(t);                                          // Append the text to <p>
     div.classList.add("playing-card");
@@ -85,6 +86,9 @@ function doIt(){
 
     if(isMatch(currentDeck, currentIndex, card, deckCnt)){
         div.classList.add("match");
+        if(suit == 'H' || suit == 'D') {
+            div.classList.add("red");
+        }
     }
 
     deckContainer.appendChild(div); 
