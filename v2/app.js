@@ -1,15 +1,20 @@
 var decks = [];
 var matches = [];
+
 var root = document.getElementById("deck-container");
 var totalMatchesDiv = document.getElementById("total-matches");
-var firstMatch = false;
+
+var firstMatch = 0;
 var totalMatches = 0;
+
+const isFirstMatch = (element) => element > 0;
 
 
 function doIt(){
     root.innerHTML = "";
     totalMatchesDiv.innerHTML = "";
     decks.length = 0;   
+    matches.length = 0;
     
     var deckCnt = document.getElementById("deckCount").value;
 
@@ -20,8 +25,9 @@ function doIt(){
         root.appendChild(posContainer);
 
     for(var i = 0; i < 52; i++){
-        var div = document.createElement("div");                       // Create a <p> node
-        var t = document.createTextNode(i.toString().padStart(2, '0'));      // Create a text node
+        var div = document.createElement("div");
+        var pos = i + 1;                       // Create a <p> node
+        var t = document.createTextNode(pos.toString().padStart(2, '0'));      // Create a text node
         
         matches.push(0);
         div.appendChild(t);                                          // Append the text to <p>
@@ -48,10 +54,22 @@ function doIt(){
         }    
     }
     
-    var div = document.createElement("p");                       // Create a <p> node
-    var t = document.createTextNode("Total matches: " + matches.reduce(total));      // Create a text node
-    div.appendChild(t);
-    totalMatchesDiv.appendChild(div);
+    firstMatch = matches.findIndex(isFirstMatch) + 1;
+
+    var divFirstMatch = document.createElement("p");                       // Create a <p> node
+    var tFirstMatch = document.createTextNode("First Match Position: " + firstMatch);      // Create a text node
+    divFirstMatch.appendChild(tFirstMatch);
+
+    var divTotal = document.createElement("p");                       // Create a <p> node
+    var tTotal = document.createTextNode("Total matches: " + matches.reduce(total));      // Create a text node
+    divTotal.appendChild(tTotal);
+    
+    totalMatchesDiv.appendChild(divFirstMatch)
+    totalMatchesDiv.appendChild(divTotal);
+
+
+
+    console.log("First: " + firstMatch);
 
     console.log("Total: " + matches.reduce(total));
 }
