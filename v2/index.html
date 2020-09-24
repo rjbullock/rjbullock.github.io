@@ -19,7 +19,20 @@
             <div class="col-12">
                 <form class="form-inline">
                     <label for="deckCount" class="col-form-label-md"># of Decks:</label>&nbsp;
-                    <input type="number" class="form-control-sm" name="deckCount" id="deckCount" />&nbsp;
+                    <input type="number" class="form-control form-control-sm" name="deckCount" id="deckCount" />&nbsp;
+                    Match...&nbsp;
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="match-color" id="match-color" checked />
+                        <label class="form-check-label" for="match-color">Color</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="match-suit" id="match-suit" checked />
+                        <label class="form-check-label" for="match-suit">Suit</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="match-value" id="match-value" checked />
+                        <label class="form-check-label" for="match-value">Value</label>
+                    </div>
                     <input type="button" onclick="doIt()" class="btn btn-primary" name="shuffle" id="shuffle" value="Shuffle"/>
                 </form>
             </div>
@@ -29,7 +42,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12" id="total-matches">
+            <div class="col-md-12" id="stats">
 
             </div>
         </div>
