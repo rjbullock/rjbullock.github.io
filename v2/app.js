@@ -8,14 +8,23 @@ statsDiv.hidden = true;
 
 var firstMatchPos = document.getElementById("firstMatchPos");
 var totalMatchesDiv = document.getElementById("totalMatches");
+var runningMatchesDiv = document.getElementById("runningPercent");
+var shuffleCountDiv = document.getElementById("shuffleCount");
 
+//Stats
 var firstMatch = 0;
 var totalMatches = 0;
 var sumTotalMatches = 0;
+var runningMatches = 0;
+var runningCardCount = 0;
+var runningPercent = 0;
 
+//Find first match in matches array
 const isFirstMatch = (element) => element > 0;
 
 function doIt(){
+    runningCardCount = runningCardCount + 52;
+
     console.clear();
     root.innerHTML = "";
     decks.length = 0;   
@@ -76,10 +85,27 @@ function doIt(){
     sumTotalMatches = matches.reduce(total);
     totalMatchesDiv.textContent = sumTotalMatches;
 
-    
+    runningMatches = runningMatches + sumTotalMatches;
+    runningPercent = runningMatches / runningCardCount;
+
+    runningMatchesDiv.textContent = toPercent(runningPercent);
+    shuffleCountDiv.textContent = runningCardCount / 52;
 
     //Reset matches
     matches.length = 0;
+}
+
+function toPercent(number, float) {
+    var percent = parseFloat(number * 100).toFixed(float) + "%";
+    return percent;
+}
+
+function resetStats() {
+    runningMatches = 0;
+    runningCardCount = 0;
+
+    runningMatchesDiv.textContent = 0;
+    shuffleCountDiv.textContent = 0;
 }
 
   function printCard(card, currentIndex, currentDeck, deckCnt, deckContainer) {
