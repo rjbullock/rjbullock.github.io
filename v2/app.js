@@ -4,15 +4,20 @@ var matches = [];
 var root = document.getElementById("deck-container");
 var statsDiv = document.getElementById("stats");
 
+statsDiv.hidden = true;
+
+var firstMatchPos = document.getElementById("firstMatchPos");
+var totalMatchesDiv = document.getElementById("totalMatches");
+
 var firstMatch = 0;
 var totalMatches = 0;
+var sumTotalMatches = 0;
 
 const isFirstMatch = (element) => element > 0;
 
 function doIt(){
     console.clear();
     root.innerHTML = "";
-    statsDiv.innerHTML = "";
     decks.length = 0;   
     matches.length = 0;
     
@@ -60,20 +65,18 @@ function doIt(){
 
     }
     
+    
+    statsDiv.hidden = false;
+
     //Show first match
     firstMatch = matches.findIndex(isFirstMatch) + 1;
-
-    var divFirstMatch = document.createElement("p");                       // Create a <p> node
-    var tFirstMatch = document.createTextNode("First Match Position: " + firstMatch);      // Create a text node
-    divFirstMatch.appendChild(tFirstMatch);
+    firstMatchPos.textContent = firstMatch;
 
     //Show total matches
-    var divTotal = document.createElement("p");                       // Create a <p> node
-    var tTotal = document.createTextNode("Total matches: " + matches.reduce(total));      // Create a text node
-    divTotal.appendChild(tTotal);
+    sumTotalMatches = matches.reduce(total);
+    totalMatchesDiv.textContent = sumTotalMatches;
+
     
-    statsDiv.appendChild(divFirstMatch)
-    statsDiv.appendChild(divTotal);
 
     //Reset matches
     matches.length = 0;
@@ -174,7 +177,7 @@ function isMatch(currentDeck,currentIndex,currentCard,deckCnt){
                 return true;
             }
 
-            console.log((currentDeck) + ":" + counter + ":" + (currentIndex) + ":" + currentCard + " c: " + matchColor + " s: " + matchSuit + " v: " + matchValue + " m: " + (matchColor && matchSuit && matchValue));
+          //console.log((currentDeck) + ":" + counter + ":" + (currentIndex) + ":" + currentCard + " c: " + matchColor + " s: " + matchSuit + " v: " + matchValue + " m: " + (matchColor && matchSuit && matchValue));
         } 
     }
 
