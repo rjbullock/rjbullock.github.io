@@ -8,6 +8,7 @@
   </div>
 </template>
 
+
 <script>
 import Player from './Player.vue';
 export default {
