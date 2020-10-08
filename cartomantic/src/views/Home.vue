@@ -3,10 +3,9 @@
     <b-container>
       <b-row>
         <AddPlayer v-on:add-player="addPlayer" />
+        <b-col class="text-right"><a :href="pdfLink" class="btn btn-primary" download="download">Download Card Charts PDF</a></b-col>
       </b-row>
-      <b-row>
       <Players v-bind:players="players" v-on:del-player="deletePlayer" />
-      </b-row>
     </b-container>
   </div>
 </template>
@@ -23,7 +22,8 @@ export default {
   },
   data() {
     return {
-      players: []
+      players: [],
+      pdfLink: require("@/assets/charts.pdf")
     }
   },
   methods: {
@@ -32,7 +32,7 @@ export default {
     },
     addPlayer(newPlayer) {
       this.players = [...this.players, newPlayer];
-    },
+    }
   }
 }
 </script>
@@ -44,8 +44,7 @@ export default {
     padding: 0;
   }
   body {
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.4;
+    
   }
   .btn {
     display: inline-block;
