@@ -43,9 +43,6 @@ export default {
     margin: 0;
     padding: 0;
   }
-  body {
-    
-  }
   .btn {
     display: inline-block;
     border: none;
